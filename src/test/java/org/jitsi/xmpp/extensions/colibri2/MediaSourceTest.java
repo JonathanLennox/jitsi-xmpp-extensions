@@ -16,6 +16,7 @@
 package org.jitsi.xmpp.extensions.colibri2;
 
 import org.jitsi.utils.*;
+import org.jitsi.utils.MediaType;
 import org.jivesoftware.smack.util.*;
 import org.junit.jupiter.api.*;
 

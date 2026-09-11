@@ -10,9 +10,10 @@
     <!-- Make sure this matches the version of the jxmpp artifacts inherited from smack. -->
     <jxmpp.version>1.0.3</jxmpp.version>
     <smack.version>4.4.8-jitsi-4</smack.version>
-    <junit.version>5.10.0</junit.version>
-    <kotlin.version>1.9.10</kotlin.version>
-    <kotest.version>5.7.2</kotest.version>
+    <junit.version>5.14.4</junit.version>
+    <junit.platform.version>1.14.4</junit.platform.version>
+    <kotlin.version>2.4.20</kotlin.version>
+    <kotest.version>5.9.1</kotest.version>
   </properties>
   <name>jitsi-xmpp-extensions</name>
   <description>Smack extensions used in Jitsi projects</description>
@@ -69,7 +70,7 @@
     <dependency>
       <groupId>org.jitsi</groupId>
       <artifactId>jitsi-utils</artifactId>
-      <version>1.0-150-g4ab9a3b</version>
+      <version>1.0-153-gd5c0102</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -104,6 +105,12 @@
     </dependency>
     <!-- test -->
     <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-launcher</artifactId>
+      <version>${junit.platform.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>${junit.version}</version>
@@ -111,7 +118,7 @@
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
+      <artifactId>junit-jupiter</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
@@ -209,6 +216,11 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M6</version>
+        <configuration>
+          <systemPropertyVariables>
+            <kotest.framework.classpath.scanning.autoscan.disable>true</kotest.framework.classpath.scanning.autoscan.disable>
+          </systemPropertyVariables>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
